@@ -9,6 +9,7 @@ import {
 } from "react-native";
 
 import styles from "./styles";
+import anim from "./animation/anim.json";
 
 const ANIMATION_DURATION = 200;
 
@@ -71,7 +72,10 @@ class Logo extends Component {
   render() {
     const containerImageStyle = [
       styles.containerImage,
-      { width: this.containerImageWidth, height: this.containerImageWidth }
+      {
+        width: this.containerImageWidth,
+        height: this.containerImageWidth
+      }
     ];
 
     const imageStyle = [styles.logo, { width: this.imageWidth }];

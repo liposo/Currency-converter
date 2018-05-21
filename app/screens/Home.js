@@ -9,7 +9,11 @@ import { ClearButton } from "../components/Button";
 import { LastConverted } from "../components/Text";
 import { Header } from "../components/Header";
 
-import { swapCurrency, changeCurrencyAmount } from "../actions/currencies";
+import {
+  swapCurrency,
+  changeCurrencyAmount,
+  getInitialConversion
+} from "../actions/currencies";
 
 import { connect } from "react-redux";
 
@@ -28,6 +32,10 @@ class Home extends Component {
     lastConvertedDate: PropTypes.object,
     primaryColor: PropTypes.string
   };
+
+  componentWillMount() {
+    this.props.dispatch(getInitialConversion());
+  }
 
   handlePressBaseCurrency = () => {
     console.log("Pressed Base");

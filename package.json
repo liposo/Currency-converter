@@ -23,6 +23,7 @@
     "color": "2.0.0",
     "expo": "^27.0.1",
     "hoist-non-react-statics": "2.3.0",
+    "lottie-react-native": "^2.5.0",
     "moment": "2.19.3",
     "react": "16.3.1",
     "react-native": "~0.55.2",
@@ -31,6 +32,7 @@
     "react-navigation": "^1.0.0-beta.21",
     "react-redux": "5.0.4",
     "redux": "3.7.2",
-    "redux-logger": "3.0.1"
+    "redux-logger": "3.0.1",
+    "redux-saga": "^0.16.0"
   }
 }
