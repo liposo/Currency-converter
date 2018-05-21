@@ -1,7 +1,14 @@
-import React, { Component } from 'react';
-import { View, Text, ImageBackground, Keyboard, Animated, Platform } from 'react-native';
+import React, { Component } from "react";
+import {
+  View,
+  Text,
+  ImageBackground,
+  Keyboard,
+  Animated,
+  Platform
+} from "react-native";
 
-import styles from './styles';
+import styles from "./styles";
 
 const ANIMATION_DURATION = 200;
 
@@ -14,14 +21,20 @@ class Logo extends Component {
   }
 
   componentDidMount() {
-    let showListener = 'keyboardWillShow';
-    let hideListener = 'keyboardWillHide';
-    if (Platform.OS === 'android') {
-      showListener = 'keyboardDidShow';
-      hideListener = 'keyboardDidHide';
+    let showListener = "keyboardWillShow";
+    let hideListener = "keyboardWillHide";
+    if (Platform.OS === "android") {
+      showListener = "keyboardDidShow";
+      hideListener = "keyboardDidHide";
     }
-    this.keyboardShowListener = Keyboard.addListener(showListener, this.keyboardShow);
-    this.keyboardHideListener = Keyboard.addListener(hideListener, this.keyboardHide);
+    this.keyboardShowListener = Keyboard.addListener(
+      showListener,
+      this.keyboardShow
+    );
+    this.keyboardHideListener = Keyboard.addListener(
+      hideListener,
+      this.keyboardHide
+    );
   }
 
   componentWillUnmount() {
@@ -33,12 +46,12 @@ class Logo extends Component {
     Animated.parallel([
       Animated.timing(this.containerImageWidth, {
         toValue: styles.$smallContainerSize,
-        duration: ANIMATION_DURATION,
+        duration: ANIMATION_DURATION
       }),
       Animated.timing(this.imageWidth, {
         toValue: styles.$smallImageSize,
-        duration: ANIMATION_DURATION,
-      }),
+        duration: ANIMATION_DURATION
+      })
     ]).start();
   };
 
@@ -46,33 +59,33 @@ class Logo extends Component {
     Animated.parallel([
       Animated.timing(this.containerImageWidth, {
         toValue: styles.$largeContainerSize,
-        duration: ANIMATION_DURATION,
+        duration: ANIMATION_DURATION
       }),
       Animated.timing(this.imageWidth, {
         toValue: styles.$largeImageSize,
-        duration: ANIMATION_DURATION,
-      }),
+        duration: ANIMATION_DURATION
+      })
     ]).start();
   };
 
   render() {
     const containerImageStyle = [
       styles.containerImage,
-      { width: this.containerImageWidth, height: this.containerImageWidth },
+      { width: this.containerImageWidth, height: this.containerImageWidth }
     ];
 
     const imageStyle = [styles.logo, { width: this.imageWidth }];
 
     return (
       <View style={styles.container}>
-        <Animated.View style={containerImageStyle}> 
+        <Animated.View style={containerImageStyle}>
           <ImageBackground
-            source={require('./images/background.png')}
+            source={require("./images/background.png")}
             style={styles.backgroundImage}
             resizeMode="contain"
           >
             <Animated.Image
-              source={require('./images/logo.png')}
+              source={require("./images/logo.png")}
               style={imageStyle}
               resizeMode="contain"
             />
