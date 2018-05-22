@@ -9,7 +9,6 @@ import {
 } from "react-native";
 
 import styles from "./styles";
-import anim from "./animation/anim.json";
 
 const ANIMATION_DURATION = 200;
 
